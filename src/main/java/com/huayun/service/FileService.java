@@ -114,13 +114,40 @@ public class FileService {
         return uploadTips;
     }
 
-    public String delete(String bucketName,String objectName){
+    /**
+     * 模拟单文件对象删除
+     *
+     * @param bucketName
+     * @param objectName
+     * @return
+     */
+    public String delete(String bucketName, String objectName) {
         String deleteTips = "";
-
-
-
+        String deletePath = bucketName + objectName;
+        File file = new File(deletePath);
+        String fileName = objectName.substring(objectName.lastIndexOf("/") + 1);
+        if (file.isFile() && file.exists()) {  // 如果是文件对象且存在
+            file.delete();
+            deleteTips = fileName + " 删除成功!";
+        } else {
+            deleteTips = fileName + " 删除失败!";
+        }
         return deleteTips;
+    }
 
+    /**
+     * 模拟文件批量删除
+     *
+     * @param bucketName
+     * @param objects
+     * @return
+     */
+    public String deletefiles(String bucketName, String[] objects) {
+        String deleteTips = "";
+        for (String objectName : objects) {
+            deleteTips += delete(bucketName, objectName) + "\n";
+        }
+        return deleteTips;
     }
 
 
