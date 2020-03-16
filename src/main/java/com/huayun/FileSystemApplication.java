@@ -15,14 +15,14 @@ public class FileSystemApplication {
 
     /**
      * 配置跨域访问的过滤器
+     *
      * @return
      */
     @Bean
-    public FilterRegistrationBean registerFilter(){
+    public FilterRegistrationBean registerFilter() {
         FilterRegistrationBean bean = new FilterRegistrationBean();
         bean.addUrlPatterns("/*");
         bean.setFilter(new CrosFilter());
         return bean;
     }
-
 }

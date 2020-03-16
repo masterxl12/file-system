@@ -6,7 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.text.DecimalFormat;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,6 +13,19 @@ import java.util.Date;
 public class FileService {
 
     private String 文件上传失败;
+
+    public String createBucket(String rootDir, String dirName) {
+        String createTips = "";
+        String createPath = rootDir + "/" + dirName;
+        File file = new File(createPath);
+        if (!file.exists()) {
+            file.mkdir();
+            createTips = "OK," + dirName + "创建成功!";
+        } else {
+            createTips = "Error," + dirName + "已经存在!";
+        }
+        return createTips;
+    }
 
     /**
      * 获取指定文件夹下的文件
@@ -100,6 +112,15 @@ public class FileService {
             }
         }
         return uploadTips;
+    }
+
+    public String delete(String bucketName,String objectName){
+        String deleteTips = "";
+
+
+
+        return deleteTips;
+
     }
 
 
