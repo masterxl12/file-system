@@ -165,6 +165,12 @@ public class FileController {
         return fileService.deletefiles(bucketName, objects);
     }
 
+    // 模拟文件夹对象的删除
+    @RequestMapping(value = "deleteDir", method = RequestMethod.POST)
+    public String deleteDir(@RequestParam String dirName) {
+        return fileService.deleteDir(dirName);
+    }
+
     /**
      * 多文件下载，打包出压缩包
      *

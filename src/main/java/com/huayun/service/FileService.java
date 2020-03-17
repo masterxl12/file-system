@@ -150,6 +150,33 @@ public class FileService {
         return deleteTips;
     }
 
+    /**
+     * 迭代删除文件夹
+     *
+     * @param dirName 文件夹路径
+     */
+    public String deleteDir(String dirName) {
+        String deleteTips = "";
+        File file = new File(dirName);
+        if (file.isFile()) {
+            file.delete();
+        } else {
+            File[] files = file.listFiles();
+            if (files == null) {
+                file.delete();  // 最后只剩下空文件夹，删除
+            } else {
+                for (int i = 0; i < files.length; i++) {
+                    System.out.println(files[i].getPath());
+                    deleteTips += "文件对象：" + files[i].getPath() + "\n";
+                    deleteDir(deleteTips);
+                }
+                file.delete();
+            }
+        }
+        deleteTips += dirName + "文件夹删除成功!";
+        return deleteTips;
+    }
+
 
     // 转换文件大小
     public String FormetFileSize(long fileS) {
@@ -177,7 +204,9 @@ public class FileService {
     public static void main(String[] args) {
         FileService fileService = new FileService();
         String path = "/Users/masterxl/Desktop/";
-        String remotePath = "testfile";
+        String remotePath = "testfile/下载";
+
+        fileService.deleteDir(path + remotePath);
 //        System.out.println(fileService.upload(path, remotePath));
     }
 }
