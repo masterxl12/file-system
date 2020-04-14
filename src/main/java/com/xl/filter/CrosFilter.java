@@ -1,4 +1,4 @@
-package com.huayun.filter;
+package com.xl.filter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;

@@ -1,8 +1,7 @@
-package com.huayun.utils;
+package com.xl.utils;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Date;
 
 public class FileInfo {
     private String name;

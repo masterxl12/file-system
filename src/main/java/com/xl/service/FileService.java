@@ -1,6 +1,6 @@
-package com.huayun.service;
+package com.xl.service;
 
-import com.huayun.utils.FileInfo;
+import com.xl.utils.FileInfo;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 

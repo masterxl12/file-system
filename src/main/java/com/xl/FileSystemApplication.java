@@ -1,6 +1,6 @@
-package com.huayun;
+package com.xl;
 
-import com.huayun.filter.CrosFilter;
+import com.xl.filter.CrosFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
